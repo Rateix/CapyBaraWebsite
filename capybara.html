@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Capybara Restaurant</title>
+	<style>
+		@font-face {
+			font-family: 'Montserrat';
+			src: url('Montserrat-Regular.ttf');
+		}
+		@font-face {
+			font-family: 'Playfair Display';
+			src: url('PlayfairDisplay-Regular.ttf');
+		}
+			h1 {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 60px;
+		text-align: center;
+		text-shadow: 3px 3px 3px #ccc;
+		color: #004d40;
+		border-bottom: 5px solid #004d40;
+		padding-bottom: 20px;
+		margin-bottom: 30px;
+	}
+
+	h2 {
+		font-family: 'Playfair Display', serif;
+		font-size: 40px;
+		text-align: center;
+		text-shadow: 2px 2px 2px #ccc;
+		color: #795548;
+		margin-top: 50px;
+	}
+
+	p {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		line-height: 1.5;
+		text-align: justify;
+		text-shadow: 1px 1px 1px #ccc;
+		color: #212121;
+		margin: 20px;
+	}
+
+	.menu-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 20px;
+		padding: 20px;
+		box-shadow: 3px 3px 3px #ccc;
+		background-color: #fff;
+	}
+
+	.menu-item h3 {
+		font-family: 'Playfair Display', serif;
+		font-size: 24px;
+		color: #d32f2f;
+		margin-bottom: 10px;
+	}
+
+	.menu-item p {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		color: #212121;
+		text-align: center;
+	}
+
+	.button {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: #d32f2f;
+		color: #fff;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		text-align: center;
+		text-shadow: 1px 1px 1px #ccc;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: 2px 2px 2px #ccc;
+		margin: 20px;
+	}
+
+	.button:hover {
+		background-color: #b71c1c;
+	}
+
+	.order-screen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		z-index: 9999;
+		display: none;
+	}
+
+	.order-box {
+		background-color: #fff;
+		padding: 20px;
+		box-shadow: 3px 3px 3px #ccc;
+		border-radius: 5px;
+	}
+
+	.order-box h3 {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 24px;
+		text-align: center;
+		margin-bottom: 10px;
+}
+
+	.order-form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.order-form label {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		color: #212121;
+		margin: 10px 0;
+	}
+
+	.order-form select {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		box-shadow: 2px 2px 2px #ccc;
+		margin: 10px 0;
+	}
+
+	.order-form button {
+		background-color: #d32f2f;
+		color: #fff;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 18px;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: 2px 2px 2px #ccc;
+		margin: 20px 0;
+	}
+
+	.order-form button:hover {
+		background-color: #b71c1c;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<h1>Capybara Restaurant</h1>
+	</header>
+	<main>
+		<section>
+			<h2>About Us</h2>
+			<p>Capybara Restaurant is a virtual dining experience that is part of the incredible VR game "Proboscis." Run by two masterminds, Rateix and Jimmybob, Capybara Restaurant takes players on a culinary adventure that is beyond compare. From the moment you enter this digital eatery, you are transported to a world where taste and texture come to life in the most extraordinary ways. The walls are adorned with vibrant and colorful murals that tell the story of the restaurant's origins and the incredible journey that led to its creation. The aroma of the freshly cooked food wafts through the air, enticing your senses and making your mouth water with anticipation.</p>
+		</section>
+		<section>
+			<h2>Our Menu</h2>
+			<div class="menu-item">
+				<h3>Grilled Capybara Steak</h3>
+				<p>Our signature dish, featuring tender and juicy capybara steak that's been marinated and grilled to perfection. Served with a side of roasted vegetables and garlic mashed potatoes.</p>
+				<button class="button" onclick="showOrderScreen()">Order Now</button>
+			</div>
+			<div class="menu-item">
+				<h3>Capybara Burger</h3>
+				<p>A classic burger with a twist, made with a juicy capybara patty and topped with cheddar cheese, lettuce, tomato, and our special sauce. Served with a side of sweet potato fries.</p>
+				<button class="button" onclick="showOrderScreen()">Order Now</button>
+			</div>
+			<div class="menu-item">
+				<h3>Capybara Sushi Rolls</h3>
+				<p>A unique and delicious take on sushi, made with fresh capybara meat and a variety of vegetables and sauces. Served with a side of miso soup.</p>
+				<button class="button" onclick="showOrderScreen()">Order Now</button>
+			</div>
+		</section>
+	</main>
+	
+	<div class="order-screen">
+	<div class="order-box">
+		<h3>Place Your Order</h3>
+		<form class="order-form">
+<label for="currency">Mangos:</label>
+<input type="text" id="currency" name="currency" value="10" readonly>
+
+			<label for="location">Virtual Proboscis Home:</label>
+			<input type="text" id="location" name="location" value="1234 Virtual Street" readonly>
+
+			<label for="food">Which one to order:</label>
+			<select id="food" name="food">
+				<option value="Grilled Capybara Steak">Grilled Capybara Steak</option>
+				<option value="Capybara Burger">Capybara Burger</option>
+				<option value="Capybara Sushi Rolls">Capybara Sushi Rolls</option>
+			</select>
+
+			<button type="submit" class="button">Order Now</button>
+			<button type="button" class="button" onclick="hideOrderScreen()">Cancel</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	function showOrderScreen() {
+		document.querySelector('.order-screen').style.display = 'flex';
+	}
+
+	function hideOrderScreen() {
+		document.querySelector('.order-screen').style.display = 'none';
+	}
+</script>
+</body>
+</html> 
+
